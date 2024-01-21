@@ -26,6 +26,10 @@
             name="ignition::gazebo::systems::Sensors">
       <render_engine>ogre2</render_engine>
     </plugin>
+    
+    <plugin filename="gui/libVisualizeLidar.so" 
+     name="gz::sim::v7::VisualizeLidar">
+    </plugin>
 
     <plugin
       filename="ignition-gazebo-user-commands-system"

@@ -2,38 +2,28 @@
 <sdf version="1.7">
   <model name="min_pipes_environment">
     <static>true</static>
-    <link name="seabed">
-      <collision name="seabed">
-        <pose>0 0 -20 0 0 1.57</pose>
+    <link name="link">
+      <visual name="visual">
+      <pose>0 -50 -7 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>meshes/seabed.dae</uri>
-            <scale>1.0 1.0 1.0</scale>
+            <uri>model://min_pipes_environment/terrain.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://min_pipes_environment/terrain.dae</uri>
           </mesh>
         </geometry>
       </collision>
-
-      <visual name="seabed">
-        <cast_shadows>true</cast_shadows>
-        <pose>0 0 -20 0 0 1.57</pose>
-        <geometry>
-          <mesh>
-            <uri>meshes/seabed.dae</uri>
-            <scale>1.0 1.0 1.0</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <pbr>
-            <metal>
-              <albedo_map>textures/soil_sand_0045_01.jpg</albedo_map>
-            </metal>
-          </pbr>
-          <ambient>0.5 0.5 0.5 1.0</ambient>
-          <diffuse>0.5 0.5 0.5 1.0</diffuse>
-          <specular>0.2 0.2 0.2 1.0</specular>
-        </material>
-      </visual>
     </link>
+
+     <include>
+      <uri>model://sand_heightmap</uri>
+      <pose>0 7 -22 0 0 0</pose>
+    </include>
 
     <link name="ocean_link">
       <visual name="surface">
